@@ -22,6 +22,9 @@ class DBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
             )
         """.trimIndent()
         db?.execSQL(createTable)
+
+        db?.execSQL("INSERT INTO livrosTB (nome, autor, resumo) VALUES ('Harry Potter e a Pedra Filosofal', 'J.K. Rowling', 'Harry Potter descobre que é um bruxo e vai estudar em Hogwarts, uma escola de magia. Lá, ele faz amigos, enfrenta perigos e descobre o mistério da Pedra Filosofal.' )")
+        db?.execSQL("INSERT INTO livrosTB (nome, autor, resumo) VALUES ('Jogos Vorazes', 'Suzanne Collins', 'Em uma sociedade distópica, Katniss Everdeen se oferece para participar dos Jogos Vorazes no lugar de sua irmã. Lutando por sua vida, ela desafia o sistema cruel que controla seu mundo.' )")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

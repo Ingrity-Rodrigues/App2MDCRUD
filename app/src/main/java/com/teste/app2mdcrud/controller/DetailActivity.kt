@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.teste.app2mdcrud.R
+import com.teste.app2mdcrud.data.dao.LivroDAO
+import com.teste.app2mdcrud.model.Livro
 
 class DetailActivity : AppCompatActivity() {
 
@@ -48,7 +50,7 @@ class DetailActivity : AppCompatActivity() {
         if (nome.text.isNotEmpty() && autor.text.isNotEmpty() && resumo.text.isNotEmpty()) {
             if (livroID == 0) {
                 val novoLivro = Livro(
-                    name = nome.text.toString(),
+                    nome = nome.text.toString(),
                     autor = autor.text.toString(),
                     resumo = resumo.text.toString()
                 )
@@ -58,7 +60,7 @@ class DetailActivity : AppCompatActivity() {
             } else {
                 val atualizaLivro = Livro(
                     id = livroID,
-                    name = nome.text.toString(),
+                    nome = nome.text.toString(),
                     autor = autor.text.toString(),
                     resumo = resumo.text.toString()
                 )
@@ -72,7 +74,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun editarLivro() {
-        val livro = livroDAO.getCharById(livroID)
+        val livro = livroDAO.getLivroById(livroID)
         livro?.let {
             nome.setText(it.nome)
             autor.setText(it.autor)
@@ -80,9 +82,10 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun deletarLivro(view: View) {
+    fun deleteLivro(view: View) {
         livroDAO.deleteLivro(livroID)
         Toast.makeText(this, "Livro excluido!", Toast.LENGTH_SHORT).show()
+        finish()
     }
 
 }

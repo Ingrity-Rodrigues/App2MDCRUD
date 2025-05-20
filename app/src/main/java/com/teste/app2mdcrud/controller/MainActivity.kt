@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         listView = findViewById(R.id.lvLivros)
-        emptyTextView = findViewById(R.id.vazio)
+        emptyTextView = findViewById(R.id.tvVazio)
         livroDAO = LivroDAO(this)
 
         listAllLivros()

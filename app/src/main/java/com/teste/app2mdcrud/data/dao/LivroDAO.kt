@@ -6,7 +6,7 @@ import android.database.Cursor
 import com.teste.app2mdcrud.data.db.DBHelper
 import com.teste.app2mdcrud.model.Livro
 
-class LivroDAO (private val context: Context) {
+class LivroDAO(private val context: Context) {
 
     private val dbHelper = DBHelper(context)
 
@@ -71,5 +71,21 @@ class LivroDAO (private val context: Context) {
         val rowsDeleted = db.delete(DBHelper.TABLE_NAME, "id=?", arrayOf(id.toString()))
         db.close()
         return rowsDeleted
+    }
+
+    fun buscaLivroPorNome(nome: String): List<String> {
+        val db = dbHelper.readableDatabase
+        val livroLista = mutableListOf<String>()
+        val cursor = db.rawQuery("SELECT * FROM livrosTb WHERE nome LIKE ?", arrayOf("%$nome%"))
+
+        if (cursor.moveToFirst()) {
+            do {
+                val nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"))
+                livroLista.add(nome)
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return livroLista
+
     }
 }

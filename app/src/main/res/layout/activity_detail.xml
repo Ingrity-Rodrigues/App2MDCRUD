@@ -2,19 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:visibility="visible"
-    android:id="@+id/detail">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp"
-        android:text="Livro"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+    tools:context=".controller.DetailActivity">
 
     <EditText
         android:id="@+id/nome"

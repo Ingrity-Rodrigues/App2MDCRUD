@@ -58,6 +58,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun pesquisar(view: View) {
+        val intent = Intent(this, PesquisaActivity::class.java)
+        startActivity(intent)
+    }
+
     override fun onResume() {
         super.onResume()
         listAllLivros()

@@ -1,9 +1,11 @@
 package com.teste.app2mdcrud.controller
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.teste.app2mdcrud.R
 import com.teste.app2mdcrud.data.dao.LivroDAO
@@ -36,5 +38,8 @@ class PesquisaActivity : AppCompatActivity() {
                 resultado.joinToString("\n")
             }
         }
+    }
+    fun voltar(view: View) {
+        finish()
     }
 }

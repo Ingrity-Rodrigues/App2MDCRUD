@@ -32,8 +32,14 @@
         android:text="Buscar"
         android:layout_marginTop="12dp"
         android:padding="12dp"
-        android:backgroundTint="#2196F3"
-        android:textColor="#FFFFFF" />
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="voltar"
+        android:text="Voltar" />
 
     <TextView
         android:id="@+id/resultTextView"
@@ -43,4 +49,5 @@
         android:text=""
         android:textSize="16sp"
         android:paddingTop="24dp" />
+
 </LinearLayout>
